@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import Button from 'react-bootstrap/button'
+import ButtonGroup from 'react-bootstrap/buttonGroup'
+import Form from 'react-bootstrap/form'
 export default class TaskItem extends Component {
   constructor(props) {
     super(props);
@@ -51,21 +53,33 @@ export default class TaskItem extends Component {
                 </form>
               </td>
               <td>
-                <button className="submit" type="submit" onClick={this.handleSubmit}>Save</button>
-                <button className="back" type="button" onClick={() => this.setIsEditing(false)}>Back</button>
+                <ButtonGroup>
+                  <Button className="mr-1" variant="success" type="submit" onClick={this.handleSubmit}>Save</Button>
+                  <Button variant="secondary" type="button" onClick={() => this.setIsEditing(false)}>Back</Button>
+                </ButtonGroup>
               </td>
             </>
           :
             <>
               <td className="task" onClick={this.toggleTask}>
-                <input type="checkbox" readOnly checked={this.props.taskItem.isCompleted}/>
-                <span className={this.props.taskItem.isCompleted ? 'completed' : 'not-completed'}>
-                  {this.props.taskItem.task}
-                </span>
+                <Form>
+                  <Form.Group className="" controlId="formBasicCheckbox">
+                    <Form.Check
+                      size="lg"
+                      type="checkbox"
+                      readOnly
+                      checked={this.props.taskItem.isCompleted}
+                      label={this.props.taskItem.task}
+                      className={this.props.taskItem.isCompleted ? 'completed' : 'not-completed'}
+                    />
+                  </Form.Group>
+                </Form>
               </td>
               <td>
-                <button className="edit" onClick={() => this.setIsEditing(true)}>Edit</button>
-                <button className="delete" onClick={this.deleteTask}>Delete</button>
+                <ButtonGroup>
+                  <Button className="edit" onClick={() => this.setIsEditing(true)}>Edit</Button>
+                  <Button variant="danger" onClick={this.deleteTask}>Delete</Button>
+                </ButtonGroup>
               </td>
             </>
         }

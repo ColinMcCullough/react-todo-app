@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import TaskItem from './TaskItem'
+import Table from 'react-bootstrap/table'
 
 export default class TaskList extends Component {
   render() {
-    return <table>
+    return <Table striped bordered >
       <thead>
         <tr>
           <th>Task</th>
@@ -23,6 +24,6 @@ export default class TaskList extends Component {
           return <TaskItem {...taskItemProps}/>
         })}
       </tbody>
-    </table>
+    </Table>
   }
 }

@@ -12,21 +12,29 @@ code {
     monospace;
 }
 .main {
-  margin: 0 auto;
-  max-width: 500px;
-}
-
-.content {
-  border: 5px solid #c0c0ff;
-  border-radius: 5px;
-  font-size: 20px;
-  background-color: #f0f0f0;
-  padding: 20px;
+  margin: 5em auto;
+  max-width: 50%;
 }
 
 table {
   width: 100%;
 }
+
+.card {
+  background: white;
+  box-shadow: 2em 2em 2em rgba(12, 35, 64, 0.25);
+  border-radius: 5px;
+  min-width: 75px;
+  max-width: 75%;
+  border-radius: 10px;
+  overflow: auto;
+  max-height : 75vh;
+  overflow-y: auto;
+}
+.card-body {
+  padding: 20px;
+}
+
 td:first-child {
   width: 100%;
 }
@@ -39,41 +47,19 @@ th {
 tr:nth-child(even) {
   background-color: #ffffff;
 }
-input, button {
-  font-size: 20px;
-  padding: 2px 5px;
-  border-radius: 5px;
-  border: 1px solid grey;
+tr {
+  font-size: 1em;
 }
 
-button {
-  margin: 0 1px;
-  cursor: pointer;
-}
-button.add {
-  background-color: #0080ff;
-  color: white;
-}
-button.edit {
-  background-color: #20a0b0;
-  color: white;
-}
-button.delete {
-  background-color: #e04040;
-  color: white;
-}
-button.submit {
-  background-color: #30b040;
-  color: white;
-}
-button.back {
-  background-color: #707080;
-  color: black;
-}
+
 .completed {
   text-decoration: line-through;
 }
 
 .task {
   cursor: pointer;
+}
+
+.table td {
+  vertical-align: middle;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Form, FormGroup, InputGroup, FormControl, Button} from 'react-bootstrap'
 export default class CreateTask extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +9,7 @@ export default class CreateTask extends Component {
   }
 
   handleChange = (e) => {
+    console.log(e)
     const { name, value } = e.target;
     this.setState({
       [name]: value
@@ -23,23 +24,26 @@ export default class CreateTask extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          name="task"
-          type="text"
-          placeholder="Enter Task"
-          value={this.state.task}
-          onChange={this.handleChange}
-          autoFocus
-        />
-        <button
-          className="add"
-          type="submit"
-          disabled={!this.state.task}
-        >
-          Add
-        </button>
-      </form>
+      <Form onSubmit={this.handleSubmit}>
+        <FormGroup>
+          <InputGroup className="mb-3">
+            <FormControl
+              name="task"
+              placeholder="Enter Task"
+              aria-label="Enter Task"
+              value={this.state.task}
+              onChange={this.handleChange}
+            />
+            <Button
+              variant="outline-primary"
+              disabled={!this.state.task}
+              type="submit"
+            >
+              Add
+            </Button>
+          </InputGroup>
+        </FormGroup>
+      </Form>
     )
   }
 }

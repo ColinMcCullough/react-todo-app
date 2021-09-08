@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateTask from './CreateTask';
 import TaskList from './TaskList';
+import Card from 'react-bootstrap/card';
 
 const tasks = localStorage.getItem('tasks')
   ? JSON.parse(localStorage.getItem('tasks')) : [];
@@ -54,13 +55,19 @@ export default class Main extends React.Component {
       toggleTask: this.toggleTask
     }
     return (
-      <div className="main">
-        <h1>Todo List</h1>
-        <div className="content">
-          <CreateTask createTask={this.createTask} />
-          <br />
-          <TaskList {...taskListProps} />
-        </div>
+      <div>
+        <Card className="main">
+          <Card.Body>
+            <Card.Title>Todo List</Card.Title>
+            <Card.Text>
+              <div className="content">
+                <CreateTask createTask={this.createTask} />
+                <br />
+                <TaskList {...taskListProps} />
+              </div>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     );
   }
